@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "description": "server ======",
+  "main": "app.js",
+  "dependencies": {
+    "express": "~4.2.0",
+    "mongoose": "~3.8.9",
+    "cors": "^2.3.1",
+    "body-parser": "^1.2.0",
+    "method-override": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/EurecomDSMWare/server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EurecomDSMWare/server/issues"
+  },
+  "homepage": "https://github.com/EurecomDSMWare/server"
+}
