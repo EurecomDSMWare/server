@@ -23,4 +23,32 @@ app.post('/me/lists', list.post);
 
 app.post('/login', require('./controllers/login.js'))
 
+app.delete('/:id', function(req, res) {
+
+  // Find out if it's a list or task
+  list.findById(req.params.id, function(error, list) {
+    if ( list ) {
+      list.remove();
+      // This is what wunderlist API responds
+      res.send({});
+    }
+    else {
+      task.findById(req.params.id, function(error, task) {
+        if ( task ) {
+          task.remove();
+          // This is what wunderlist API responds
+          res.send({});
+        }
+        else {
+          // Object not found => reply bad request
+          res.send(400);
+        }
+      });
+    }
+  });
+
+});
+
+app.put('/:id', task.put);
+
 app.listen(process.argv[2]);
