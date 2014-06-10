@@ -14,6 +14,7 @@ var ListController = {
   },
 
   post: function post(req, res) {
+    req.body.owner_id = req.ownerId;
     new List(req.body).save(function (error, list) {
       if ( error ) {
         // TODO
@@ -24,7 +25,9 @@ var ListController = {
   },
 
   get: function get(req, res) {
-    List.find({}, function(error, lists) {
+    List.find({
+      owner_id: req.ownerId
+    }, function(error, lists) {
       res.json(lists);
     });
   },

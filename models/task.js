@@ -51,7 +51,7 @@ var taskSchema = new Schema({
     type: String,
     default: 'Task'
   },
-  owner_id: ObjectId,
+  owner_id: String,
   due_date: {
     type: Date,
     default: null

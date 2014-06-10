@@ -13,6 +13,14 @@ app.use(cors());
 app.use(bodyParser());
 app.use(methodOverride());
 
+// Extract the authorization information from each request
+app.use(function (req, res, next) {
+  if ( req.headers.authorization ) {
+    req.ownerId = req.headers.authorization.replace('Bearer ', '');
+  }
+  next();
+});
+
 var task = require('./controllers/task.js')
 app.get('/me/tasks', task.get);
 app.post('/me/tasks', task.post);

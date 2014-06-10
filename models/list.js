@@ -12,7 +12,7 @@ var listSchema = new Schema({
   local_identifier: String,
   position: Number,
   type: String,
-  owner_id: ObjectId
+  owner_id: String
 });
 
 listSchema.virtual('id').get(function() {

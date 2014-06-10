@@ -14,6 +14,7 @@ var TaskController = {
   },
 
   post: function post(req, res) {
+    req.body.owner_id = req.ownerId;
     new Task(req.body).save(function (error, task) {
       if ( error ) {
         // TODO
@@ -24,7 +25,9 @@ var TaskController = {
   },
 
   get: function get(req, res) {
-    Task.find({}, function(error, tasks) {
+    Task.find({
+      owner_id: req.ownerId
+    }, function(error, tasks) {
       res.json(tasks);
     });
   },

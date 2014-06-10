@@ -1,7 +1,8 @@
-// Just for testing ATM
+// Login implemented only in "dummy mode" (according to project specifications)
+// -> the user is recognized only based on the provided e-mail address
 
 module.exports = function login(req, res) {
   res.json({
-    token: '33d64896205e1f6d61835807bfbd8feb2cd703d7'
+    token: req.body.email
   });
 };
